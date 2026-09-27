@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fffaf7">
+  <meta name="description" content="A quiet garden made for Priyanka — an apology, a little hope, and the space to breathe.">
+  <title>For Priyanka, with Love ♡</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <canvas id="gardenCanvas" aria-hidden="true"></canvas>
+  <div class="petal-burst" id="petalBurst" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Back to the beginning">
+      <span class="brand-mark">✿</span>
+      <span>A little garden for Priyanka</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-controls="primaryNav" aria-expanded="false">
+      <span class="nav-toggle-icon" aria-hidden="true"></span>
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+    <nav id="primaryNav" class="nav-links" aria-label="Page">
+      <a href="#sorry">I’m sorry</a>
+      <a href="#assurance">What I promise</a>
+      <a href="#flowers">Flowers</a>
+      <a href="#respect">Your space</a>
+      <a href="#one-ask">A little hope</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="top" class="hero">
+      <div class="hero-glow hero-glow-a"></div>
+      <div class="hero-glow hero-glow-b"></div>
+
+      <div class="hero-copy reveal">
+        <p class="eyebrow">made only for you</p>
+        <p class="hero-dedication">A small garden. A sincere apology. Nothing you owe me.</p>
+        <h1>I’m sorry.<br><em>Truly.</em></h1>
+        <p class="hero-sub">
+          Pattuma, I know things became painful between us, and I’m sorry for the part I played in that.
+          I’m not making this to win you over, make you feel guilty, or ask you to decide anything right now.
+          I just wanted to put a little gentleness where there was hurt.
+        </p>
+      </div>
+
+      <div class="hero-garden" aria-hidden="true">
+        <div class="moon"></div>
+        <div class="hero-bouquet" id="heroBouquet"></div>
+        <span class="hero-firefly f1"></span>
+        <span class="hero-firefly f2"></span>
+        <span class="hero-firefly f3"></span>
+        <span class="hero-firefly f4"></span>
+      </div>
+
+      <p class="hero-note"><em>You can read this slowly, skip anything, or close it whenever you want. It is still yours to take at your own pace.</em></p>
+    </section>
+
+    <section id="sorry" class="letter-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">before anything else</p>
+        <h2>I don’t want my apology to become another burden.</h2>
+        <p>
+          So this part is simple. I’m owning what is mine, without asking you to take care of my feelings about it.
+        </p>
+      </div>
+
+      <div class="apology-grid">
+        <article class="apology-card reveal">
+          <span class="card-number">01</span>
+          <div class="card-flower"><span class="mini-flower mini-rose">✿</span></div>
+          <p class="card-flower-name">Rose · love with honesty</p>
+          <h3>I’m sorry I hurt you.</h3>
+          <p>
+            I care about you deeply, and that makes it harder knowing I became part of a moment that left you upset.
+            I’m not going to explain it away. I’m sorry for the hurt, and I’m taking that seriously.
+          </p>
+        </article>
+
+        <article class="apology-card reveal">
+          <span class="card-number">02</span>
+          <div class="card-flower"><span class="mini-flower mini-lavender">✦</span></div>
+          <p class="card-flower-name">Lavender · room to breathe</p>
+          <h3>Thangame, I hear you.</h3>
+          <p>
+            You don’t have to explain yourself perfectly for me to respect what you feel.
+            I want to listen without interrupting, correcting, or turning this into a case I need to win.
+          </p>
+        </article>
+
+        <article class="apology-card reveal">
+          <span class="card-number">03</span>
+          <div class="card-flower"><span class="mini-flower mini-sunflower">✺</span></div>
+          <p class="card-flower-name">Sunflower · a little hope</p>
+          <h3>I want to do better, not just say better.</h3>
+          <p>
+            Chellam, I know trust is not repaired by one emotional paragraph.
+            It comes from the ordinary things after the apology — honesty, consistency, patience, and how I handle the next hard conversation.
+          </p>
+        </article>
+      </div>
+
+      <div class="heart-letter reveal">
+        <div class="letter-decor">✿</div>
+        <p class="eyebrow">one thing I mean</p>
+        <h3>I will let my actions carry the part of this apology that words cannot.</h3>
+        <p>
+          I’m not asking you to trust me immediately. I’m not asking you to forget what happened.
+          I just want the chance, over time, to be clearer, calmer, and more considerate than I was in this moment.
+        </p>
+        <p class="signature">— with love, and without an expectation attached</p>
+      </div>
+    </section>
+
+    <section id="assurance" class="assurance-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">what I promise</p>
+        <h2>Baby gurl, these are not grand promises.<br><em>They are small ones I can actually keep.</em></h2>
+        <p>
+          I’d rather promise less and live it properly than promise the whole world and disappoint you again.
+        </p>
+      </div>
+
+      <div class="promise-shell reveal">
+        <div class="promise-tabs" role="group" aria-label="Choose an assurance">
+          <button class="promise-tab is-active" data-promise="apology" aria-pressed="true">
+            <span>✿</span><strong>I’ll own my part</strong><small>No excuses.</small>
+          </button>
+          <button class="promise-tab" data-promise="listen" aria-pressed="false">
+            <span>◌</span><strong>I’ll listen</strong><small>To understand.</small>
+          </button>
+          <button class="promise-tab" data-promise="patience" aria-pressed="false">
+            <span>☾</span><strong>I’ll respect your time</strong><small>No chasing.</small>
+          </button>
+          <button class="promise-tab" data-promise="work" aria-pressed="false">
+            <span>❋</span><strong>I’ll be consistent</strong><small>In real life.</small>
+          </button>
+          <button class="promise-tab" data-promise="hope" aria-pressed="false">
+            <span>✦</span><strong>I’ll keep hope quietly</strong><small>Without pressure.</small>
+          </button>
+          <button class="promise-tab" data-promise="love" aria-pressed="false">
+            <span>♡</span><strong>I’ll love respectfully</strong><small>With boundaries.</small>
+          </button>
+        </div>
+
+        <div class="promise-display">
+          <div class="promise-flower-wrap">
+            <div id="promiseFlower" class="promise-flower"></div>
+            <span id="promiseFlowerLabel">White Tulip</span>
+          </div>
+          <div class="promise-copy" aria-live="polite">
+            <p class="eyebrow">a flower for this promise</p>
+            <h3 id="promiseTitle">I’m sorry for the way I handled this.</h3>
+            <p id="promiseText"></p>
+            <div class="promise-bottom">
+              <span>gentle words</span>
+              <span>clear actions</span>
+              <span>time to breathe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="flowers" class="flowers-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">for every feeling</p>
+        <h2>A flower is sometimes easier than a paragraph.</h2>
+        <p>
+          Pick whatever feels closest. There is no right answer here, and nothing hidden behind the buttons.
+          Just a little care, in a form you already love.
+        </p>
+      </div>
+
+      <div class="bouquet-shell reveal">
+        <div class="bouquet-tabs" role="group" aria-label="Choose what you are feeling">
+          <button class="bouquet-tab is-active" data-bouquet="hurt" aria-pressed="true">♡ <span>Hurt</span></button>
+          <button class="bouquet-tab" data-bouquet="angry" aria-pressed="false">✦ <span>Angry</span></button>
+          <button class="bouquet-tab" data-bouquet="tired" aria-pressed="false">☾ <span>Tired</span></button>
+          <button class="bouquet-tab" data-bouquet="quiet" aria-pressed="false">◌ <span>Quiet</span></button>
+          <button class="bouquet-tab" data-bouquet="hope" aria-pressed="false">✿ <span>Hopeful someday</span></button>
+        </div>
+
+        <div id="bouquetDisplay" class="bouquet-display">
+          <div id="bouquetFlowers" class="bouquet-flowers" aria-hidden="true"></div>
+          <div class="bouquet-letter" aria-live="polite">
+            <div class="letter-topline">
+              <span>✿</span>
+              <p id="bouquetMood" class="eyebrow">For the hurt</p>
+            </div>
+            <p class="bouquet-to">A bouquet, not a demand.</p>
+            <h3 id="bouquetTitle">You don’t have to hide the bruise.</h3>
+            <p id="bouquetText"></p>
+            <div class="divider"><span></span><i>✦</i><span></span></div>
+            <p id="bouquetPromise" class="bouquet-promise"></p>
+            <p class="signoff">Take what feels comforting. Leave the rest. The flowers can simply be flowers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="respect" class="promise-list-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">your space matters</p>
+        <h2>My love should never require you to ignore your boundaries.</h2>
+        <p>
+          If you need distance, I will treat that as something to respect, not something to argue with.
+        </p>
+      </div>
+
+      <div class="promise-list">
+        <div class="promise-row reveal"><span>01</span><strong>I won’t chase an answer.</strong><p>You do not need to reply, decide, or reassure me just because I reached out.</p></div>
+        <div class="promise-row reveal"><span>02</span><strong>I won’t use guilt to keep you close.</strong><p>Your kindness should never become a debt. You are free to take the space you need.</p></div>
+        <div class="promise-row reveal"><span>03</span><strong>I won’t turn silence into a fight.</strong><p>Sometimes people need quiet before they can speak honestly. I can respect that.</p></div>
+        <div class="promise-row reveal"><span>04</span><strong>I won’t make promises for you.</strong><p>I can tell you what I hope for. I cannot decide what you are ready for.</p></div>
+        <div class="promise-row reveal"><span>05</span><strong>I will keep my side clean.</strong><p>Clear communication, honest behaviour, and no avoidable ambiguity — especially when things are difficult.</p></div>
+        <div class="promise-row reveal"><span>06</span><strong>I will let trust grow at its own speed.</strong><p>Slow does not scare me. Real is more important to me than fast.</p></div>
+      </div>
+    </section>
+
+    <section id="one-ask" class="ask-section">
+      <div class="ask-card reveal" id="hopePanel">
+        <div class="ask-flower-left" aria-hidden="true"><span>✿</span><span>❋</span><span>✧</span></div>
+        <div class="ask-content">
+          <p class="eyebrow">a little hope, left gently</p>
+          <h2>I hope there is a way forward.<br><em>But I won’t force the door open.</em></h2>
+          <p class="ask-lead">
+            Priya, I’m not asking for a promise, a relationship decision, or an answer today.
+          </p>
+          <p>
+            I only want you to know that I still care, I still believe we can learn from this, and I would be willing to build something healthier than what this moment showed us.
+            When you feel ready to talk, I will listen. Until then, I will respect the space between us.
+          </p>
+          <div class="ask-quote">
+            <span>“</span>
+            <p id="finalNote">I don’t need you to choose anything today. I just wanted you to know what I am choosing: patience, honesty, and care.</p>
+          </div>
+        </div>
+        <div class="ask-flower-right" aria-hidden="true"><span>✿</span><span>❋</span><span>✧</span></div>
+      </div>
+    </section>
+
+    <section class="final-section">
+      <div class="final-floral" aria-hidden="true">
+        <span>✿</span><span>✦</span><span>❋</span><span>✧</span><span>♡</span>
+      </div>
+      <p class="eyebrow">from me to you</p>
+      <h2>I love you. I’m sorry. I’ll do better.</h2>
+      <p class="final-lead">
+        I cannot undo the moment. I can be more careful with the moments that come after it.
+        I can be patient. I can be honest. I can give you room. And I can keep hoping quietly for a better chapter — without asking you to carry that hope for me.
+      </p>
+      <p class="final-line">The flowers can wait. So can I. 🤍</p>
+      <div class="final-sign">— with love, Navaneeth</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made for Priyanka · with flowers, honesty, patience, and love without pressure.</p>
+  </footer>
+</body>
+</html>
