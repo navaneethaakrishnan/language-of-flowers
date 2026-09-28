@@ -12,27 +12,27 @@
     listen: {
       title: "I will listen before I defend myself.",
       text: "You do not have to convince me that you were hurt. I want to understand what this felt like from your side — properly, without interrupting, correcting, or trying to win.",
-      flower: "Lily"
+      flower: "Bluebell"
     },
     patience: {
       title: "I can give you time without disappearing.",
       text: "Taking time does not scare me. I can let you breathe. I can stay steady. I can care about you without demanding that you feel better on my schedule.",
-      flower: "Lavender"
+      flower: "Chamomile"
     },
     work: {
       title: "I want to repair, not just apologise.",
       text: "An apology only means something when my actions become gentler afterward. I want to earn back peace through consistency, honesty, and the little things I do when nobody is applauding.",
-      flower: "Sunflower"
+      flower: "Daffodil"
     },
     hope: {
       title: "I still have hope for us.",
       text: "Not a hope that ignores reality. A quiet hope that says one painful chapter does not have to become the ending. I believe some things can be repaired when two people are willing to try.",
-      flower: "Forget-me-not"
+      flower: "Goldenrod"
     },
     love: {
       title: "My feelings for you did not disappear with the argument.",
       text: "I love you. I’m not saying that to put weight on your heart. I’m saying it because I want you to know what is true in mine — even while I respect whatever time your heart needs.",
-      flower: "Rose"
+      flower: "Gardenia"
     }
   };
 
@@ -42,7 +42,7 @@
       title: "You don’t have to hide the bruise.",
       text: "I know an apology cannot rewind the moment. So I’m not asking you to pretend it didn’t happen. Let it be real. Let yourself feel whatever you feel. I will meet you there with patience, not pressure.",
       promise: "I will not rush your healing just because I miss you.",
-      flowers: ["Violet", "Chamomile", "Forget-me-not"],
+      flowers: ["Violet", "Poppy", "Forget-me-not"],
       accent: "#9b7aa9"
     },
     angry: {
@@ -50,7 +50,7 @@
       title: "You’re allowed to be angry with me.",
       text: "You never need to make your feelings smaller so I can stay comfortable. Tell me what hurt. Tell me what you needed. I would rather hear an uncomfortable truth than receive a comfortable silence.",
       promise: "I will listen to understand, not listen to answer.",
-      flowers: ["Rose", "Iris", "Marigold"],
+      flowers: ["Iris", "Marigold", "Protea"],
       accent: "#bd6874"
     },
     tired: {
@@ -58,7 +58,7 @@
       title: "Put the weight down for a while.",
       text: "You don't have to solve us tonight. You don't have to decide what this becomes. Rest. Breathe. Eat something. Sleep. Let tomorrow be tomorrow.",
       promise: "I can love you patiently without asking you to carry my anxiety too.",
-      flowers: ["Magnolia", "Jasmine", "Lily of the Valley"],
+      flowers: ["Magnolia", "Stock", "Lily of the Valley"],
       accent: "#8d8aaa"
     },
     quiet: {
@@ -66,7 +66,7 @@
       title: "You can have some silence here.",
       text: "Priya, if quiet is what gives you room to settle, I can respect that. You are not required to keep a conversation going just because I am ready before you are.",
       promise: "I will give you space without making you feel guilty for taking it.",
-      flowers: ["Lavender", "White Tulip", "Jasmine"],
+      flowers: ["Snowdrop", "Primrose", "Bellflower"],
       accent: "#7b65a7"
     },
     hope: {
@@ -74,7 +74,7 @@
       title: "Maybe things can feel gentle again.",
       text: "I still hope for a better chapter, but I do not need you to promise me one. I can simply be honest about that hope and leave the future where it belongs — in its own time.",
       promise: "I will hold hope softly, without placing it in your hands.",
-      flowers: ["Sunflower", "Forget-me-not", "Daisy"],
+      flowers: ["Crocus", "Water Lily", "Hyacinth"],
       accent: "#c49a45"
     },
     scared: {
@@ -103,15 +103,51 @@
   function setup() {
     setupNav();
     setupReveal();
+    setupAcknowledgement();
     setupPromiseTabs();
     setupBouquetTabs();
     setupAmbientCanvas();
     renderHeroFlowers();
     renderNoticeFlowers();
+    renderApologyFlowers();
     renderPromise();
     renderBouquet();
     rotateFinalNote();
     body.classList.add("is-ready");
+  }
+
+  function setupAcknowledgement() {
+    const button = doc.getElementById("acknowledgeButton");
+    const popup = doc.getElementById("acknowledgementPopup");
+    const close = doc.getElementById("acknowledgementClose");
+    if (!button || !popup) return;
+
+    let hideTimer = null;
+
+    const hidePopup = () => {
+      popup.classList.remove("is-visible");
+      popup.setAttribute("aria-hidden", "true");
+      if (hideTimer) {
+        clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    };
+
+    const showPopup = () => {
+      popup.classList.add("is-visible");
+      popup.setAttribute("aria-hidden", "false");
+      if (hideTimer) clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(hidePopup, 3000);
+    };
+
+    button.addEventListener("click", showPopup);
+    close?.addEventListener("click", hidePopup);
+    popup.addEventListener("click", (event) => {
+      if (event.target === popup) hidePopup();
+    });
+    doc.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && popup.classList.contains("is-visible")) hidePopup();
+    });
   }
 
   function setupNav() {
@@ -220,6 +256,14 @@
     });
   }
 
+  function renderApologyFlowers() {
+    doc.querySelectorAll("[data-apology-flower]").forEach((host) => {
+      const name = host.dataset.apologyFlower;
+      if (!name) return;
+      host.replaceChildren(createFlowerIllustration(name, "apology"));
+    });
+  }
+
   function renderNoticeFlowers() {
     doc.querySelectorAll("[data-notice-flower]").forEach((host) => {
       const name = host.dataset.noticeFlower;
@@ -231,7 +275,7 @@
   function renderHeroFlowers() {
     const wrap = doc.getElementById("heroBouquet");
     if (!wrap) return;
-    ["Rose", "White Tulip", "Forget-me-not"].forEach((name, index) => {
+    ["Rosemary", "Gladiolus", "Zinnia"].forEach((name, index) => {
       const flower = doc.createElement("div");
       flower.className = `hero-flower hero-flower-${index + 1}`;
       flower.appendChild(createFlowerIllustration(name, "hero"));
