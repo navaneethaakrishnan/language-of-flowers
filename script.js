@@ -122,10 +122,13 @@
     if (!button || !popup) return;
 
     let hideTimer = null;
+    let previousOverflow = "";
 
     const hidePopup = () => {
       popup.classList.remove("is-visible");
       popup.setAttribute("aria-hidden", "true");
+      body.classList.remove("acknowledgement-open");
+      body.style.overflow = previousOverflow;
       if (hideTimer) {
         clearTimeout(hideTimer);
         hideTimer = null;
@@ -133,6 +136,9 @@
     };
 
     const showPopup = () => {
+      previousOverflow = body.style.overflow;
+      body.style.overflow = "hidden";
+      body.classList.add("acknowledgement-open");
       popup.classList.add("is-visible");
       popup.setAttribute("aria-hidden", "false");
       if (hideTimer) clearTimeout(hideTimer);
@@ -297,7 +303,11 @@
         p: Math.random() * Math.PI * 2
       }));
     }
+    let rafId = 0;
+    let running = true;
+
     function frame(t) {
+      if (!running) return;
       ctx.clearRect(0, 0, w, h);
       particles.forEach(p => {
         p.y += p.v;
@@ -315,11 +325,23 @@
         ctx.fill();
         ctx.restore();
       });
-      requestAnimationFrame(frame);
+      rafId = requestAnimationFrame(frame);
     }
+
+    function setRunning(next) {
+      if (running === next) return;
+      running = next;
+      if (running) rafId = requestAnimationFrame(frame);
+      else {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+    }
+
     resize();
     window.addEventListener("resize", resize, {passive:true});
-    requestAnimationFrame(frame);
+    document.addEventListener("visibilitychange", () => setRunning(!document.hidden));
+    rafId = requestAnimationFrame(frame);
   }
 
   const speciesProfiles = {

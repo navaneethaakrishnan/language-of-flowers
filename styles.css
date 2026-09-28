@@ -1958,6 +1958,11 @@ section { scroll-margin-top: calc(var(--header) + 20px); }
 }
 
 
+
+body.acknowledgement-open {
+  overscroll-behavior: none;
+}
+
 /* Acknowledge photo pop-up */
 .acknowledge-wrap {
   display: flex;
@@ -1976,13 +1981,15 @@ section { scroll-margin-top: calc(var(--header) + 20px); }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: max(18px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
   background: rgba(35, 25, 28, .68);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+  contain: strict;
+  overscroll-behavior: contain;
   transition: opacity .3s ease, visibility .3s ease;
 }
 
@@ -1994,6 +2001,7 @@ section { scroll-margin-top: calc(var(--header) + 20px); }
 
 .acknowledgement-image {
   display: block;
+  will-change: transform;
   width: auto;
   height: auto;
   max-width: min(88vw, 520px);
@@ -2011,6 +2019,8 @@ section { scroll-margin-top: calc(var(--header) + 20px); }
 
 .acknowledgement-close {
   position: absolute;
+  z-index: 2;
+  touch-action: manipulation;
   top: max(18px, env(safe-area-inset-top));
   right: max(18px, env(safe-area-inset-right));
   width: 44px;
