@@ -58,7 +58,9 @@
         <span class="hero-firefly f4"></span>
       </div>
 
-      <p class="hero-note"><em>You can read this slowly, skip anything, or close it whenever you want. It is still yours to take at your own pace.</em></p>
+      <div class="hero-note-wrap">
+        <p class="hero-note"><em>You can read this slowly, skip anything, or close it whenever you want. It is still yours to take at your own pace.</em></p>
+      </div>
     </section>
 
     <section id="sorry" class="letter-section">
@@ -73,7 +75,7 @@
       <div class="apology-grid">
         <article class="apology-card reveal">
           <span class="card-number">01</span>
-          <div class="card-flower"><span class="mini-flower mini-rose">✿</span></div>
+          <div class="card-flower" data-apology-flower="Rose" aria-hidden="true"></div>
           <p class="card-flower-name">Rose · love with honesty</p>
           <h3>I’m sorry I hurt you.</h3>
           <p>
@@ -84,7 +86,7 @@
 
         <article class="apology-card reveal">
           <span class="card-number">02</span>
-          <div class="card-flower"><span class="mini-flower mini-lavender">✦</span></div>
+          <div class="card-flower" data-apology-flower="Lavender" aria-hidden="true"></div>
           <p class="card-flower-name">Lavender · room to breathe</p>
           <h3>Thangame, I hear you.</h3>
           <p>
@@ -95,7 +97,7 @@
 
         <article class="apology-card reveal">
           <span class="card-number">03</span>
-          <div class="card-flower"><span class="mini-flower mini-sunflower">✺</span></div>
+          <div class="card-flower" data-apology-flower="Sunflower" aria-hidden="true"></div>
           <p class="card-flower-name">Sunflower · a little hope</p>
           <h3>I want to do better, not just say better.</h3>
           <p>
@@ -238,20 +240,20 @@
           <p>Your questions, your eagerness to understand, and the way you keep looking for your own answers.</p>
         </article>
         <article class="notice-card reveal">
-          <div class="notice-flower" data-notice-flower="Sunflower"></div>
-          <p class="notice-label">Sunflower · effort</p>
+          <div class="notice-flower" data-notice-flower="Lotus"></div>
+          <p class="notice-label">Lotus · effort</p>
           <h3>The effort behind things.</h3>
           <p>I notice the trying, not only the result. The work you put in matters even when nobody sees it.</p>
         </article>
         <article class="notice-card reveal">
-          <div class="notice-flower" data-notice-flower="Lavender"></div>
-          <p class="notice-label">Lavender · quiet days</p>
+          <div class="notice-flower" data-notice-flower="Wisteria"></div>
+          <p class="notice-label">Wisteria · quiet days</p>
           <h3>You don’t need to be “on”.</h3>
           <p>You can be tired, quiet, distracted, or simply having an ordinary day. You are still you.</p>
         </article>
         <article class="notice-card reveal">
-          <div class="notice-flower" data-notice-flower="Lotus"></div>
-          <p class="notice-label">Lotus · becoming</p>
+          <div class="notice-flower" data-notice-flower="Peony"></div>
+          <p class="notice-label">Peony · becoming</p>
           <h3>The person you’re becoming.</h3>
           <p>You’re allowed to change your mind, take your time, learn, grow, and find your own way.</p>
         </article>
@@ -292,11 +294,23 @@
       </p>
       <p class="final-line">The flowers can wait. So can I. 🤍</p>
       <div class="final-sign">— with love, Navaneeth</div>
+      <div class="acknowledge-wrap">
+        <button id="acknowledgeButton" class="button button-ghost acknowledge-button" type="button">Acknowledge ✿</button>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>Made for Priyanka · with flowers, honesty, patience, and love without pressure.</p>
   </footer>
+
+  <div id="acknowledgementPopup" class="acknowledgement-popup" aria-hidden="true">
+    <button id="acknowledgementClose" class="acknowledgement-close" type="button" aria-label="Close picture">×</button>
+    <img
+      src="https://i.pinimg.com/736x/a8/84/e1/a884e1c0ef6dc04d43348d7699f08fe3.jpg"
+      alt="A little picture for you"
+      class="acknowledgement-image"
+    >
+  </div>
 </body>
 </html>
