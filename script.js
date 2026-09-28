@@ -109,7 +109,6 @@
     setupAmbientCanvas();
     renderHeroFlowers();
     renderNoticeFlowers();
-    renderApologyFlowers();
     renderPromise();
     renderBouquet();
     rotateFinalNote();
@@ -253,14 +252,6 @@
       caption.textContent = name;
       card.appendChild(caption);
       flowers.appendChild(card);
-    });
-  }
-
-  function renderApologyFlowers() {
-    doc.querySelectorAll("[data-apology-flower]").forEach((host) => {
-      const name = host.dataset.apologyFlower;
-      if (!name) return;
-      host.replaceChildren(createFlowerIllustration(name, "apology"));
     });
   }
 
